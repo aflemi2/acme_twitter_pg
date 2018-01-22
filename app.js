@@ -28,7 +28,7 @@ app.engine('html', nunjucks.render); // when giving html files to res.render, te
 nunjucks.configure('views'); // point nunjucks to the proper directory for templates
 
 
-app.get('/', (req, res) => res.render( 'index', {title: 'Hall of Fame', apples: locals['people']} ));
+app.get('/', (req, res) => res.render( 'index', {title: 'Hall of Fame', people: people} ));
 
 app.listen(3000, ()=> console.log('server listening'))
 
