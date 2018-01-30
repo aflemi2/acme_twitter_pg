@@ -1,3 +1,8 @@
 <!-- //collection of all tweets
  -->
 {% extends('./layout.html') %}
+{% block content %}
+{% for user in TwitterUser %}
+  {{ user.name }}
+  {% endfor %}
+  {% endblock %}
