@@ -1,8 +1,14 @@
-<!-- //collection of all tweets
- -->
 {% extends('./layout.html') %}
 {% block content %}
+Page Displays All Tweeter Users.
+  <ul>
 {% for user in TwitterUser %}
+  <li>
+    <a href=/tweets/{{user.id}}>
   {{ user.name }}
-  {% endfor %}
+</a>
+  </li>
+
+{% endfor %}
+</ul>
   {% endblock %}

@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 nunjucks.configure({ noCache: true });
+const path = require('path');
 const port = 3000 || process.env.PORT;
 
 db.sync((err)=>{
@@ -32,21 +33,19 @@ db.sync((err)=>{
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
+app.use('/vendor', express.static(path.join(__dirname, 'node_modules')
+));
+
+app.use((req, res, next)=> {
+  res.locals.path = req.url;
+  next();
+});
+
 app.get ('/', (req, res, next)=> {
  res.render('index', { title: 'Twitter' });
 });
 
-app.get ('/tweets', (req, res, next)=> {
- // db.getTweets((err, users)=> {
- //  if(err) return next(err);
- //  res.send(users);
-  res.render('tweets', { title: 'Tweet Bank', TwitterUser: db.getTweets((err, users)=> {
-    if(err) return next(err);
-    return users;
-  })
-   });
- // });
-});
+app.use('/tweets', require('./routes/tweets'));
 
 app.get ('/tweets/:id', (req, res, next)=> {
   db.getTweet(req.params.id, (err, result)=> {

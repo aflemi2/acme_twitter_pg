@@ -33,6 +33,11 @@ const sync = (cb)=> {
 const seed = (cb)=> {
   client.query(SQL_SEED, cb);
 };
+const userObj = ()=> {
+  return client.query('SELECT * from users')
+};
+
+
 
 const getTweets = (cb)=> {
   client.query('SELECT * from users', (err, result)=>{
@@ -41,16 +46,21 @@ const getTweets = (cb)=> {
   });
 };
 
+
 const getTweet = (id, cb)=> {
   client.query('SELECT * from users WHERE id = $1', [id], (err, result)=>{
     if (err) return cb(err);
     cb(null, result.rows.length ? result.rows[0] : null);
   });
 };
+// const getTweet = (id)=> {
+//   return people.find( person => person.id === id*1);
+// }
 
 module.exports = {
   sync,
   seed,
   getTweets,
-  getTweet
+  getTweet,
+  userObj
 };
