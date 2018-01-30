@@ -1,0 +1,19 @@
+<html>
+  <head>
+        <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>This is my postgres twitter app.</p>
+    <ul>
+      <li>
+        <a href='/'>HOME</a>
+      </li>
+      <li>
+        <a href='/tweets'>TWEETS</a>
+      </li>
+      {% block content %}
+      {% endblock %}
+    </ul>
+  </body>
+</html>

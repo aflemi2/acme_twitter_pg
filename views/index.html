@@ -1,14 +1,1 @@
-<html>
-  <head>
-        <title>{{ title }}</title>
-  </head>
-  <body>
-
-    <p>This is a bare-bones template.</p>
-    <ul>
-    {% for person in people %}
-      <li>{{ person.name }}</li>
-    {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends('./layout.html') %}
