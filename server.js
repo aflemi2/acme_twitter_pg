@@ -40,7 +40,11 @@ app.get ('/tweets', (req, res, next)=> {
  // db.getTweets((err, users)=> {
  //  if(err) return next(err);
  //  res.send(users);
-  res.render('tweets', { title: 'Tweet Bank', TwitterUser: db.getTweets() });
+  res.render('tweets', { title: 'Tweet Bank', TwitterUser: db.getTweets((err, users)=> {
+    if(err) return next(err);
+    return users;
+  })
+   });
  // });
 });
 
