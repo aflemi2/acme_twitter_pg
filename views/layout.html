@@ -1,19 +1,24 @@
 <html>
   <head>
         <title>{{ title }}</title>
+        <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>This is my postgres twitter app.</p>
-    <ul>
-      <li>
-        <a href='/'>HOME</a>
+    <div class='container'>
+      <h1>{{ title }}</h1>
+    <div class='jumbotron'>
+    This is my PostGres Twitter app!
+    </div>
+    <ul class='nav nav-pills' style='margin: 10px 0'>
+      <li class='nav-item'>
+        <a class='nav-link active' href='/'>HOME</a>
       </li>
-      <li>
-        <a href='/tweets'>TWEETS</a>
+      <li class='nav-item'>
+        <a class='nav-link' href='/tweets'>TWEETS</a>
       </li>
       {% block content %}
       {% endblock %}
     </ul>
+  </div>
   </body>
 </html>
