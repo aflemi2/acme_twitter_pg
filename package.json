@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.1.2",
+    "bootstrap": "^4.3.1",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "nunjucks": "^3.0.1",
